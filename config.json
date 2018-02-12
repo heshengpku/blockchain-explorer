@@ -4,14 +4,14 @@
 			"name": "peerOrg1",
 			"mspid": "Org1MSP",
 			"peer1": {
-				"requests": "grpcs://127.0.0.1:7051",
-				"events": "grpcs://127.0.0.1:7053",
+				"requests": "grpcs://0.0.0.0:7051",
+				"events": "grpcs://0.0.0.0:7053",
 				"server-hostname": "peer0.org1.example.com",
-				"tls_cacerts": "fabric-path/first-network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+				"tls_cacerts": "user/tls/ca.crt"
 			},
 			"admin": {
-				"key": "fabric-path/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore",
-				"cert": "fabric-path/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts"
+				"key": "user/msp/keystore",
+				"cert": "user/msp/signcerts"
 			}
 		}
 	},
@@ -21,7 +21,7 @@
 	"keyValueStore": "/tmp/fabric-client-kvs",
 	"eventWaitTime": "30000",
 	"mysql": {
-		"host": "127.0.0.1",
+		"host": "0.0.0.0",
 		"port": "3306",
 		"database": "fabricexplorer",
 		"username": "root",

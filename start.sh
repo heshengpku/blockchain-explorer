@@ -1,5 +1,9 @@
 #!/bin/bash
 
-rm -rf /tmp/fabric-client-kvs_peerOrg*
+docker build . -t hyperledger/explorer
 
-node main.js >log.log 2>&1 &
+docker-compose -f docker-compose-explorer.yaml up
+
+# rm -rf /tmp/fabric-client-kvs_peerOrg*
+
+# node main.js >log.log 2>&1 &

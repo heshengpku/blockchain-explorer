@@ -1,0 +1,29 @@
+# Copyright Kingdee Corp. All Rights Reserved.
+#
+# author: He Sheng
+
+version: "2"
+
+services:
+
+  explorer-mysql:
+    container_name: explorer-mysql
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3306:3306"
+      
+  explorer-node:
+    container_name: explorer-node
+    image: hyperledger/explorer
+    restart: always
+    volumes:
+      - ./user/:/home/explorer/user/
+      - ./config.json:/home/explorer/config.json
+    command: /bin/bash -c 'sleep 30; node ./main.js'
+    ports:
+      - "8080:8080"
